@@ -1,0 +1,75 @@
+// gePowerProject.js
+
+class Turbine {
+  constructor(id, model, capacity) {
+    this.id = id;
+    this.model = model;
+    this.capacity = capacity;
+    this.status = 'Offline';
+  }
+
+  start() {
+    this.status = 'Running';
+    console.log(`Turbine ${this.id} started.`);
+  }
+
+  stop() {
+    this.status = 'Offline';
+    console.log(`Turbine ${this.id} stopped.`);
+  }
+}
+
+class PowerPlant {
+  constructor(name, location) {
+    this.name = name;
+    this.location = location;
+    this.turbines = [];
+  }
+
+  addTurbine(turbine) {
+    this.turbines.push(turbine);
+    console.log(`Turbine ${turbine.id} added to the power plant.`);
+  }
+
+  removeTurbine(turbineId) {
+    this.turbines = this.turbines.filter((turbine) => turbine.id !== turbineId);
+    console.log(`Turbine ${turbineId} removed from the power plant.`);
+  }
+
+  startAllTurbines() {
+    this.turbines.forEach((turbine) => turbine.start());
+    console.log('All turbines started.');
+  }
+
+  stopAllTurbines() {
+    this.turbines.forEach((turbine) => turbine.stop());
+    console.log('All turbines stopped.');
+  }
+}
+
+// Usage example:
+
+// Create turbines
+const turbine1 = new Turbine(1, 'Model X', 100);
+const turbine2 = new Turbine(2, 'Model Y', 150);
+const turbine3 = new Turbine(3, 'Model Z', 200);
+
+// Create power plant
+const powerPlant = new PowerPlant('GE Power Plant', 'New York');
+
+// Add turbines to the power plant
+powerPlant.addTurbine(turbine1);
+powerPlant.addTurbine(turbine2);
+powerPlant.addTurbine(turbine3);
+
+// Start all turbines
+powerPlant.startAllTurbines();
+
+// Stop turbine 2
+turbine2.stop();
+
+// Remove turbine 3 from the power plant
+powerPlant.removeTurbine(3);
+
+// Stop all turbines
+powerPlant.stopAllTurbines();
