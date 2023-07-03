@@ -1,3 +1,3 @@
 # Hey There!
 
-## I am Harsha Ponnuru. I am a full-stack Java developer with experience in developing and deploying web applications. I have experience with both monolithic and microservices architecture.
+## I am Harsha Ponnuru. I am a full-stack Java developer with experience in developing and deploying web applications. 
